@@ -1,0 +1,12 @@
+#!/bin/bash
+VIRTUALENV=.virtualenv
+
+if [ ! -d VIRTUALENV ]; then
+  virtualenv ${VIRTUALENV};
+  source ${VIRTUALENV}/bin/activate
+fi
+
+pip install --upgrade pip
+pip install -r test_requirements.txt
+
+echo "Your virtualenv is prepared! Type 'source ${VIRTUALENV}/bin/activate' to activate it. Type 'deactivate' to stop using it."
