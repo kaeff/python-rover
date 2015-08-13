@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kaeff/python-rover.svg?branch=master)](https://travis-ci.org/kaeff/python-rover)
+
 # Python Rover
 
 A breakable toy for learning python.
