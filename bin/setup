@@ -7,6 +7,6 @@ if [ ! -d VIRTUALENV ]; then
 fi
 
 pip install --upgrade pip
-pip install -r test_requirements.txt
+pip install -r requirements.txt
 
 echo "Your virtualenv is prepared! Type 'source ${VIRTUALENV}/bin/activate' to activate it. Type 'deactivate' to stop using it."
