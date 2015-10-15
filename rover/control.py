@@ -1,10 +1,8 @@
-HEADINGS = ['N', 'E', 'S', 'W']
-LEFT_RIGHT = {'L': -1, 'R': 1}
 
 
 def launch_mission(input_string):
     rover_lines = input_string.splitlines()[1:]
-    rovers = pairs(rover_lines)
+    rovers = [(commands, initial_position.split(' ')) for commands, initial_position in pairs(rover_lines)]
     final_positions = [execute_mission(rover) for rover in rovers]
     return '\n'.join(["%s %s %s" % final_position for final_position in final_positions])
 
@@ -18,7 +16,7 @@ def pairs(a_list):
 
 def execute_mission(rover):
     commands, initial_position = rover
-    x, y, heading = initial_position.split(' ')
+    x, y, heading = initial_position
     for command in commands:
         x, y, heading = execute_command(x, y, heading, command)
     return x, y, heading
@@ -41,6 +39,10 @@ def execute_move(heading, x, y):
     x = x + 1 if heading is 'E' else x
     x = x - 1 if heading is 'W' else x
     return x, y
+
+
+HEADINGS = ['N', 'E', 'S', 'W']
+LEFT_RIGHT = {'L': -1, 'R': 1}
 
 
 def execute_turn(heading, command):
