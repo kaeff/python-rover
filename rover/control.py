@@ -2,8 +2,8 @@
 
 def launch_mission(input_string):
     rovers = parse_rovers(input_string)
-    final_positions = [execute_mission(rover) for rover in rovers]
-    return '\n'.join(["%s %s %s" % final_position for final_position in final_positions])
+    final_positions = map(execute_mission, rovers)
+    return format_output(final_positions)
 
 
 def parse_rovers(input_string):
@@ -17,6 +17,10 @@ def pairs(a_list):
     while a_list:
         result.insert(0, (a_list.pop(), a_list.pop()))
     return result
+
+
+def format_output(final_positions):
+    return '\n'.join(["%s %s %s" % final_position for final_position in final_positions])
 
 
 def execute_mission(rover):
