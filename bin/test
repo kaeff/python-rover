@@ -1,2 +1,3 @@
 #!/bin/bash
-pep8 src/main.py
+pep8 rover/*.py
+python -m unittest test/*_test.py
